@@ -1,21 +1,59 @@
-.wrapper {
+img {
+    width: 100%;
+    min-width: 250px;
+    height: 90%;
+
+}
+
+.imagewrapper::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.image {
+    float: left;
+    width: 25%;
+}
+
+.imagewrapper .quote {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: blue;
+    font-size: larger;
+    padding-top: 80px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+.boxwrapper {
     text-align: center;
 }
 
 .box {
     background-color: darkcyan;
-    height: 100px;
     margin: 8px 8px;
-    text-align: center;
-    line-height: 100px;
     display: inline-block;
+    min-width: 250px;
+    height: auto;
 }
 
 #about, #services {
-    width: 45%;
+    width: 40%;
 }
 
 #contact {
-    width: calc(90% + 20px);
+    width: calc(80% + 20px);
     margin-top: 8px;
+}
+
+h2 {
+    margin: 0;
+    text-align: left;
+    padding: 12px 12px;
+}
+
+p {
+    padding: 8px 8px;
 }
