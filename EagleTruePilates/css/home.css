@@ -1,0 +1,21 @@
+.wrapper {
+    text-align: center;
+}
+
+.box {
+    background-color: darkcyan;
+    height: 100px;
+    margin: 8px 8px;
+    text-align: center;
+    line-height: 100px;
+    display: inline-block;
+}
+
+#about, #services {
+    width: 45%;
+}
+
+#contact {
+    width: calc(90% + 20px);
+    margin-top: 8px;
+}
