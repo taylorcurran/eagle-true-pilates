@@ -1,13 +1,24 @@
-body{
+body {
     margin: 0;
 }
 
 h1 {
-    text-align: center;
     font-family: 'Amatic SC', cursive;
     font-size: 112px;
     font-weight: normal;
     margin-top: unset;
+    line-height: 178px;
+}
+
+#header {
+    text-align: center;
+}
+
+#logo {
+    display:inline;
+    width: auto;
+    height: auto;
+    min-width: 0;
 }
 
 .nav-bar {

@@ -2,7 +2,6 @@ img {
     width: 100%;
     min-width: 250px;
     height: 90%;
-
 }
 
 .imagewrapper::after {
@@ -14,38 +13,40 @@ img {
 .image {
     float: left;
     width: 25%;
+    opacity: 0.8;
 }
 
 .imagewrapper .quote {
     position: absolute;
     width: 100%;
     text-align: center;
-    color: blue;
-    font-size: larger;
+    color: white;
     padding-top: 80px;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 36px;
+    text-shadow: black 0.1em 0.1em 0.2em
 }
-
 
 .boxwrapper {
     text-align: center;
+    margin: 40px;
 }
 
 .box {
-    background-color: darkcyan;
-    margin: 8px 8px;
+    background-color: #6998A5;
+    margin: 20px 20px;
     display: inline-block;
     min-width: 250px;
     height: auto;
 }
 
 #about, #services {
-    width: 40%;
+    width: 35%;
 }
 
 #contact {
-    width: calc(80% + 20px);
-    margin-top: 8px;
+    width: calc(70% + 45px);
+    margin-top: 20px;
 }
 
 h2 {
