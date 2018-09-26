@@ -4,6 +4,11 @@ img {
     height: 90%;
 }
 
+.imagewrapper {
+    width: 1552px;
+    margin: auto;
+}
+
 .imagewrapper::after {
     content: "";
     clear: both;
@@ -31,11 +36,11 @@ img {
     text-align: center;
     padding-top: 40px;
     padding-bottom: 40px;
-    background-color: #d8e0ea;
 }
 
 .box {
     background-color: #6998A5;
+    box-shadow: 5px 7px 20px #888888;
     margin: 20px 20px;
     display: inline-block;
     min-width: 250px;
