@@ -2,7 +2,7 @@
 <html>
 <head>
     <?php require_once "header.php"; ?>
-    <link href="css/index.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
 </head>
 <div class="imagewrapper">
     <div class="image">
