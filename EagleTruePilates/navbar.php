@@ -5,7 +5,7 @@
         <li><a <?php if ($thisPage=="index") echo " id=\"currentpage\""; ?> href="index.php">home</a></li>
         <li>
             <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn" <?php if ($thisPage=="services") echo " id=\"currentpage\""; ?>>services</button>
+                <button class="dropbtn" <?php if ($thisPage=="services") echo " id=\"currentpage\""; ?>>services</button>
                 <div id="myDropdown" class="dropdown-content">
                     <a href="#">Link 1</a>
                     <a href="schedule.php">schedule</a>
@@ -17,7 +17,3 @@
     </ul>
 </div>
 </html>
-
-<script>
-
-</script>

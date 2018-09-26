@@ -51,11 +51,18 @@ h1 {
     font-size: larger;
 }
 
+.dropbtn {
+    background-color: white;
+    padding: 16px;
+    font-size: large;
+    border: none;
+}
+
 .dropdown {
     position: relative;
     display: inline-block;
 }
-/* Dropdown Content (Hidden by Default) */
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -65,7 +72,6 @@ h1 {
     z-index: 1;
 }
 
-/* Links inside the dropdown */
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
@@ -73,8 +79,16 @@ h1 {
     display: block;
 }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd}
+.dropdown-content a:hover {
+    color: darkcyan;
+    text-decoration: underline;
+    font-size: larger;
+}
 
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {display:block;}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #f1f1f1;
+}
