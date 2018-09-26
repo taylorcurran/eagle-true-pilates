@@ -55,6 +55,8 @@ h1 {
     background-color: white;
     padding: 16px;
     font-size: large;
+    font-family: initial;
+    letter-spacing: 4px;
     border: none;
 }
 
@@ -91,4 +93,16 @@ h1 {
 
 .dropdown:hover .dropbtn {
     background-color: #f1f1f1;
+    color: darkcyan;
+    font-size: larger;
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black;
+    display: inline-block;
+    padding-bottom: 2px;
 }
