@@ -6,6 +6,7 @@ img {
 
 .imagewrapper {
     width: 1270px;
+    height: 810px;
     margin: auto;
 }
 
@@ -13,10 +14,6 @@ img {
     content: "";
     clear: both;
     display: table;
-}
-
-#image_background {
-    background-color: #080c0d;
 }
 
 .image {

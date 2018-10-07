@@ -4,11 +4,9 @@
     <?php require_once "header.php"; ?>
     <link href="css/index.css" rel="stylesheet">
 </head>
-<div id="image_background">
-    <div class="imagewrapper">
-        <div class="image">
-            <img src="images/VS-Yoga-Sukhasana.png">
-        </div>
+<div class="imagewrapper">
+    <div class="image">
+        <img src="images/VS-Yoga-Sukhasana.png">
     </div>
 </div>
 <div class="boxwrapper">
