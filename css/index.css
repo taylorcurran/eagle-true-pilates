@@ -5,7 +5,7 @@ img {
 }
 
 .imagewrapper {
-    width: 1552px;
+    width: 1270px;
     margin: auto;
 }
 
@@ -15,10 +15,12 @@ img {
     display: table;
 }
 
+#image_background {
+    background-color: #080c0d;
+}
+
 .image {
-    float: left;
-    width: 25%;
-    opacity: 0.8;
+
 }
 
 .imagewrapper .quote {
@@ -39,7 +41,7 @@ img {
 }
 
 .box {
-    background-color: #6998A5;
+    background-color: #708E8C;
     box-shadow: 5px 7px 20px #888888;
     margin: 20px 20px;
     display: inline-block;

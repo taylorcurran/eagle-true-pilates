@@ -4,22 +4,11 @@
     <?php require_once "header.php"; ?>
     <link href="css/index.css" rel="stylesheet">
 </head>
-<div class="imagewrapper">
-    <div class="image">
-        <img src="images/JoePilatesHome1.jpg">
-    </div>
-    <div class="image">
-        <img src="images/JoePilatesHome2.jpg">
-    </div>
-    <div class="image">
-        <img src="images/JoePilatesHome3.jpg">
-    </div>
-    <div class="image">
-        <img src="images/Joe.jpg">
-    </div>
-    <div class="quote">
-        <p>“Change happens through movement, and movement heals.”</p>
-        <p>- Joeseph Pilates <p>
+<div id="image_background">
+    <div class="imagewrapper">
+        <div class="image">
+            <img src="images/VS-Yoga-Sukhasana.png">
+        </div>
     </div>
 </div>
 <div class="boxwrapper">
