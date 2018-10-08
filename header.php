@@ -9,7 +9,11 @@
 </head>
     <?php require_once "navbar.php"; ?>
     <div id="header">
-        <h1><img id="logo" src="images/eagle.PNG">
-        Eagle True Pilates</h1>
+        <div>
+            <img id="logo" src="images/eagle.PNG">
+        </div>
+        <div>
+            <h1>Eagle True Pilates</h1>
+        </div>
     </div>
 </html>

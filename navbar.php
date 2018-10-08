@@ -7,7 +7,7 @@
             <div class="dropdown">
                 <button class="dropbtn" <?php if ($thisPage=="services") echo " id=\"currentpage\""; ?>>services<div class="arrow-down"></div></button>
                 <div id="myDropdown" class="dropdown-content">
-                    <a href="#">Link 1</a>
+                    <a href="classes.php">classes</a>
                     <a href="schedule.php">schedule</a>
                 </div>
             </div>
