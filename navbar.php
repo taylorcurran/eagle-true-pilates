@@ -5,7 +5,9 @@
         <li><a <?php if ($thisPage=="index") echo " id=\"currentpage\""; ?> href="index.php">home</a></li>
         <li>
             <div class="dropdown">
-                <button class="dropbtn" <?php if ($thisPage=="services") echo " id=\"currentpage\""; ?>>services<div class="arrow-down"></div></button>
+                <button class="dropbtn" <?php if ($thisPage=="services") echo " id=\"currentpage\""; ?>>services
+                    <i id="arrow" class="fas fa-chevron-down fa-xs"></i>
+                </button>
                 <div id="myDropdown" class="dropdown-content">
                     <a href="classes.php">classes</a>
                     <a href="schedule.php">schedule</a>

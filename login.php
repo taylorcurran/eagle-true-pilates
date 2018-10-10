@@ -1,18 +1,12 @@
 <?php $thisPage="services";
+session_start();
 
 require_once "Dao.php";
 $dao = new Dao();
 
-session_start();
+$login_message = isset($_SESSION['login_message']) ? $_SESSION['login_message'] : '';
+unset($_SESSION['login_message']);
 
-if (isset($_SESSION["access_granted"]) && $_SESSION["access_granted"]) {
-header("Location:granted.php");
-}
-
-$email = "";
-if (isset($_SESSION["email_preset"])) {
-$email = $_SESSION["email_preset"];
-}
 ?>
 
 <html>
@@ -21,39 +15,57 @@ $email = $_SESSION["email_preset"];
     <link href="css/services.css" rel="stylesheet">
 </head>
 <?php require_once "header.php"; ?>
-
-<div>
-<!--    --><?php
-/*    if (isset($_SESSION["status"])) {
-        echo "<div id="status">" .  $_SESSION["status"] . "</div>";
-      unset($_SESSION["status"]);
-    }
-    */?>
+<body>
+<div class="form_wrapper">
     <form action="login_handler.php" method="post">
         <div class="container">
-            <label for="email"><b>Email</b></label>
-            <input type="text" name="email" id="email" value="<?php echo $email; ?>" required>
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email">
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
 
+            <?php if(!empty($login_message)) { ?>
+                <div class="message"><?php echo $login_message; ?></div>
+            <?php } ?>
             <button type="submit">Login</button>
-            <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
-            </label>
         </div>
+    </form>
 
-        <div class="container" style="background-color:#f1f1f1">
-            <button type="button" class="cancelbtn">Cancel</button>
+    <div id="or">OR</div>
+
+    <form action="signup_handler.php" method="post">
+        <div class="container">
+            <label for="first_name">First Name</label>
+            <input type="text" name="first_name" id="first_name"
+                   value="<?php echo isset($_SESSION['presets']['first_name']) ? $_SESSION['presets']['first_name'] : '';?>">
+
+            <label for="last_name">Last Name</label>
+            <input type="text" name="last_name" id="last_name"
+                   value="<?php echo isset($_SESSION['presets']['last_name']) ? $_SESSION['presets']['last_name'] : '';?>">
+
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email"
+                   value="<?php echo isset($_SESSION['presets']['email']) ? $_SESSION['presets']['email'] : '';?>">
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password"
+                   value="<?php echo isset($_SESSION['presets']['password']) ? $_SESSION['presets']['password'] : '';?>">
+
+            <?php unset($_SESSION['presets']); ?>
+
+            <?php if (isset($_SESSION['signup_message'])) {
+                foreach ($_SESSION['signup_message'] as $signup_message) {?>
+                    <div class="message <?php echo isset($_SESSION['validated']) ? $_SESSION['validated'] : '';?>">
+                        <?php echo $signup_message; ?></div>
+                <?php  }
+                unset($_SESSION['signup_message']);
+                ?> </div>
+            <?php } ?>
+            <button type="submit">Sign Up</button>
         </div>
     </form>
 </div>
-<div>
-    <?php
-    $user = $dao->getUser($email);
-    echo $user
-    ?>
-</div>
-
-<?php require_once "footer.php"; ?>
+</body>
 </html>
+<?php require_once "footer.php"; ?>

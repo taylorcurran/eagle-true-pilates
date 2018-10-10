@@ -27,10 +27,20 @@ class Dao {
         $q->execute();
     }
 
+    public function getUsers () {
+        $conn = $this->getConnection();
+        return $conn->query("SELECT * FROM user", PDO::FETCH_ASSOC);
+    }
+
     public function getUser ($email) {
         $conn = $this->getConnection();
-        return $conn->query("SELECT * FROM user WHERE email = '$email'");
+        $sql = "select * from user where email = '$email'";
+        $query = $conn->prepare($sql);
+        $query->setFetchMode(PDO::FETCH_ASSOC);
+        $query->execute();
+        return $query->fetchAll();
     }
 }
 ?>
+
 
