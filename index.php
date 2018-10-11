@@ -5,25 +5,51 @@
     <link href="css/index.css" rel="stylesheet">
 </head>
 <div class="imagewrapper">
-    <div class="image">
-        <img src="images/VS-Yoga-Sukhasana.png">
-    </div>
+    <img id="display_image" src="images/160415122850-womens-sacred-expression-retreat-in-lake-atitlan-guatemala-super-169.jpg">
 </div>
-<div class="boxwrapper">
-    <div class="box" id="about">
-        <h2>About Julia</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas suscipit, turpis eget dapibus venenatis, urna mauris tristique libero, nec consectetur ex metus tincidunt justo. Nam sagittis mi et tellus ultrices, id congue tellus semper. Nunc eget neque vitae orci volutpat pulvinar. Aenean lorem dui, elementum ut mi quis, malesuada consequat tellus. In sed ipsum eu augue euismod posuere at gravida leo. Praesent sapien lectus, cursus vitae ante at, laoreet suscipit massa. Sed pretium varius scelerisque. Nam augue elit, feugiat sed venenatis et, commodo nec nibh. Vestibulum nec rutrum sem. </p>
-    </div>
-    <div class="box" id="services">
-        <h2>Services</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas suscipit, turpis eget dapibus venenatis, urna mauris tristique libero, nec consectetur ex metus tincidunt justo. Nam sagittis mi et tellus ultrices, id congue tellus semper. Nunc eget neque vitae orci volutpat pulvinar. Aenean lorem dui, elementum ut mi quis, malesuada consequat tellus. In sed ipsum eu augue euismod posuere at gravida leo. Praesent sapien lectus, cursus vitae ante at, laoreet suscipit massa. Sed pretium varius scelerisque. Nam augue elit, feugiat sed venenatis et, commodo nec nibh. Vestibulum nec rutrum sem.
+<div id="index_body">
+    <div id="welcome">
+        <h2>Welcome</h2>
+        <p>
+            Eagle True Pilates is a sacred sanctuary with ancient Mayan altars and natural springs
+            that have been protected as a Natural Reserve in order to honor the land and the heritage of its people.
+        </p>
+        <p>
+            Connect to Mother Earth and create space for transformation and self healing. Enjoy daily pilates in
+            beautiful natural Temples.
+        </p>
+        <p>
+            Unwind and restore with our Wellness Packages and cleanse & detox in the forest sauna.
+            You can climb our unique cliffs, swim and paddle board in the lake, hike the volcanoes, or just
+            relax in a hammock, all while finding authentic connection within an intimate community space.
         </p>
     </div>
-    <div class="box" id="contact">
-        <h2>Why Pilates?</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas suscipit, turpis eget dapibus venenatis, urna mauris tristique libero, nec consectetur ex metus tincidunt justo. Nam sagittis mi et tellus ultrices, id congue tellus semper. Nunc eget neque vitae orci volutpat pulvinar. Aenean lorem dui, elementum ut mi quis, malesuada consequat tellus. In sed ipsum eu augue euismod posuere at gravida leo. Praesent sapien lectus, cursus vitae ante at, laoreet suscipit massa. Sed pretium varius scelerisque. Nam augue elit, feugiat sed venenatis et, commodo nec nibh. Vestibulum nec rutrum sem.
-        </p>
+    <div class="container">
+        <img class="image_list" src="images/studio_view.png">
+        <div class="content">
+            <h3>location</h3>
+            <p>Enjoy the peace and tranquility of mountains looking out over Lake Atitlán towards volcanoes San Pedro,
+                Toliman and Atitlán. Offering a unique retreat space within a tropical forest with amazing views,
+                comfortable beds, delicious vegetarian meals, daily pilates with meditation and friendly community living.
+            </p>
+            <a href="about.php">about</a>
+        </div>
     </div>
+    <div class="container">
+        <img class="image_list" src="images/handstandishmove.png">
+        <div class="content">
+            <h3>services</h3>
+            <p>Some text</p>
+        </div>
+    </div>
+    <div class="container">
+        <img class="image_list" src="images/sunset.png">
+        <div class="content">
+            <h3>why</h3>
+            <p>Some text</p>
+        </div>
+    </div>
+
 </div>
 </body>
 <?php require_once "footer.php"; ?>

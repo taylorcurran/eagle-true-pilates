@@ -1,23 +1,30 @@
-img {
+#index_body {
+    margin: 20px 200px;
+}
+
+#display_image {
     width: 100%;
     min-width: 250px;
     height: 90%;
 }
 
-.imagewrapper {
-    width: 1270px;
-    height: 810px;
-    margin: auto;
+.container {
+    margin-top: 50px;
 }
 
-.imagewrapper::after {
-    content: "";
-    clear: both;
-    display: table;
+.image_list {
+    width: 340px;
 }
 
-.image {
+.content {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 30px;
+    max-width: 55%;
+}
 
+.content > p {
+    display:inline-flex;
 }
 
 .imagewrapper .quote {
@@ -53,14 +60,4 @@ img {
 #contact {
     width: calc(70% + 45px);
     margin-top: 20px;
-}
-
-h2 {
-    margin: 0;
-    text-align: left;
-    padding: 12px 12px;
-}
-
-p {
-    padding: 8px 8px;
 }
