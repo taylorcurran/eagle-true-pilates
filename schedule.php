@@ -5,8 +5,20 @@ require_once "Dao.php";
 $dao = new Dao();
 
 $logged_in = isset($_SESSION['logged_in']) ? $_SESSION['logged_in'] : 'false';
+$email = isset($_SESSION['presets']['email']) ? $_SESSION['presets']['email'] : 'no email';
+$first_name = $dao->getFirstName($email);
+$last_name = $dao->getLastName($email);
+$user_id = $dao->getUserId($email);
 
-$email = isset($_SESSION['email']) ? $_SESSION['email'] : 'no email';
+echo $user_id[0], " ";
+echo $email, " ";
+
+$memberId = $dao->getGroupMemberId()[0];
+echo $memberId[0], " ";
+
+$isMember = $dao->isMember($user_id[0]);
+
+echo $isMember[0];
 
 ?>
 <html>
@@ -45,26 +57,50 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'no email';
 </head>
 <?php require_once "header.php"; ?>
 
-<?php if($logged_in == 'true') {
-    $user = $dao->getUser($email);
-    echo $user;
-    ?>
-    <div>
-        <p>Hello <?php echo $first_name?>!</p>
+<div class="body_container">
+
+    <?php if(strcmp($logged_in, 'true') == 0) : ?>
+
+        <div id="banner">
+            <div id="hello_message">
+                <p>Hello <?php echo $first_name[0]?>!</p>
+            </div>
+            <div id="login_button">
+                <form action="logout.php">
+                    <button type="button">Sign Out</button>
+                </form>
+            </div>
+        </div>
+
+        <?php if($isMember) : ?>
+            <div>
+                <div>
+                    <h3>Account Info</h3>
+                    <p>Name: <?php echo $first_name[0]," ", $last_name[0]?></p>
+                    <p>Email: <?php echo $email?></p>
+                </div>
+                <div>
+                    <h3>Upcoming Classes</h3>
+                    <p></p>
+                </div>
+            </div>
+        <?php endif; ?>
+
+    <?php else : ?>
+    <div id="banner">
+
+        <div id="login_button">
+            <form action="login.php">
+                <input type="submit" value="Log In"/>
+            </form>
+        </div>
     </div>
-    <? } else { ?>
+    <?php endif; ?>
 
-<?php } ?>
-
-
-<div id="login_button">
-    <form action="login.php">
-        <input type="submit" value="Log In"/>
-    </form>
+    <div id='calendar'></div>
 </div>
 
-<div id='calendar'></div>
-
-
-<?php require_once "footer.php"; ?>
+<?php require_once "footer.php";
+unset($_SESSION['login_message']);
+?>
 </html>

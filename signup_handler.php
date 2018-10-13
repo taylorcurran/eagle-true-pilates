@@ -40,16 +40,19 @@ if (empty($password)) {
 
 if ($bad_input) {
     header('Location: login.php');
-    $_SESSION['validated'] = 'bad';
+    $_SESSION['logged_in'] = 'false';
     exit;
 }
 
 //Everything was validated
-$_SESSION['validated'] = 'good';
-
+$_SESSION['logged_in'] = 'true';
 unset($_SESSION['presets']);
 
 $dao->saveUser($first_name, $last_name, $email, $password);
+
+$user_id = $dao->getUserId($email);
+$group_id = $dao->getGroupMemberId();
+$dao->saveUserGroup($user_id[0], $group_id[0]);
 
 header('Location: schedule.php');
 exit;

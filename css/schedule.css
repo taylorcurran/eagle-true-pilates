@@ -1,8 +1,25 @@
 #calendar {
-    margin: 0 50px;
 }
 
 #login_button {
+    display: inline-block;
+}
+
+button {
+    box-sizing: border-box;
+    height: 2.1em;
+    padding: 0 .6em;
+    font-size: 1em;
+    white-space: nowrap;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+}
+
+#hello_message {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#banner {
     text-align: right;
-    margin: 0 50px;
 }

@@ -7,7 +7,7 @@
 <div class="imagewrapper">
     <img id="display_image" src="images/160415122850-womens-sacred-expression-retreat-in-lake-atitlan-guatemala-super-169.jpg">
 </div>
-<div id="index_body">
+<div class="body_container">
     <div id="welcome">
         <h2>Welcome</h2>
         <p>

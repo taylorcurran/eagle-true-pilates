@@ -1,11 +1,8 @@
-#index_body {
-    margin: 20px 200px;
-}
-
 #display_image {
     width: 100%;
     min-width: 250px;
     height: 90%;
+    margin: 0;
 }
 
 .container {
@@ -20,44 +17,37 @@
     display: inline-block;
     vertical-align: top;
     margin-left: 30px;
-    max-width: 55%;
+    max-width: 52%;
 }
 
 .content > p {
     display:inline-flex;
 }
 
-.imagewrapper .quote {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    color: white;
-    padding-top: 80px;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 36px;
-    text-shadow: black 0.1em 0.1em 0.2em
+@media only screen and (max-width: 900px) {
+    .content {
+        max-width: 43%;
+    }
 }
 
-.boxwrapper {
-    text-align: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
+@media only screen and (max-width: 780px) {
+    .content {
+        max-width: 85%;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    .content {
+        text-align: left;
+    }
 }
 
-.box {
-    background-color: #708E8C;
-    box-shadow: 5px 7px 20px #888888;
-    margin: 20px 20px;
-    display: inline-block;
-    min-width: 250px;
-    height: auto;
-}
-
-#about, #services {
-    width: 35%;
-}
-
-#contact {
-    width: calc(70% + 45px);
-    margin-top: 20px;
+@media only screen and (max-width: 400px) {
+    .content {
+        max-width: 100%;
+        display: block;
+        margin-left: 0;
+    }
 }

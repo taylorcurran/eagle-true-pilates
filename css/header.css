@@ -1,7 +1,11 @@
 body {
     margin: 0;
-    overflow-x: hidden;
     font-family: 'Nunito', sans-serif;
+}
+
+.body_container {
+    margin: 20px 200px;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -135,4 +139,16 @@ h3 {
 
 .arrow-down:hover .dropbtn {
     color: darkcyan;
+}
+
+@media only screen and (max-width: 1200px) {
+    .body_container {
+        margin: 20px 50px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .body_container {
+        margin: 20px 10px;
+    }
 }

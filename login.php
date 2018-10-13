@@ -7,6 +7,8 @@ $dao = new Dao();
 $login_message = isset($_SESSION['login_message']) ? $_SESSION['login_message'] : '';
 unset($_SESSION['login_message']);
 
+echo "<pre>" . print_r($_SESSION,1) . "</pre>";
+
 ?>
 
 <html>
@@ -16,7 +18,7 @@ unset($_SESSION['login_message']);
 </head>
 <?php require_once "header.php"; ?>
 <body>
-<div class="form_wrapper">
+<div class="body_container form_wrapper">
     <form action="login_handler.php" method="post">
         <div class="container">
             <label for="email">Email</label>

@@ -28,3 +28,20 @@ group_id INT NOT NULL,
 permission_id INT NOT NULL
 );
 
+CREATE TABLE class (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+instructor_id INT,
+name VARCHAR(64) NOT NULL,
+start DATETIME NOT NULL,
+end DATETIME NOT NULL,
+occupancy INT
+);
+
+INSERT INTO class (instructor_id, name, start, end, occupancy) VALUES (1, 'piyo', '2018-10-26 9:00:00', '2018-10-26 10:00:00', 20);
+
+CREATE TABLE user_class (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+user_id INT NOT NULL,
+class_id INT NOT NULL
+);
+
