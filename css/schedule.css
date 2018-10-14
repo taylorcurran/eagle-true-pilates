@@ -5,7 +5,7 @@
     display: inline-block;
 }
 
-button {
+input {
     box-sizing: border-box;
     height: 2.1em;
     padding: 0 .6em;

@@ -64,7 +64,7 @@ echo "<pre>" . print_r($_SESSION,1) . "</pre>";
                 unset($_SESSION['signup_message']);
                 ?> </div>
             <?php } ?>
-            <button type="submit">Sign Up</button>
+            <button class type="submit">Sign Up</button>
         </div>
     </form>
 </div>

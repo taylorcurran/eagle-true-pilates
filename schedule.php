@@ -6,30 +6,23 @@ $dao = new Dao();
 
 $logged_in = isset($_SESSION['logged_in']) ? $_SESSION['logged_in'] : 'false';
 $email = isset($_SESSION['presets']['email']) ? $_SESSION['presets']['email'] : 'no email';
-$first_name = $dao->getFirstName($email);
-$last_name = $dao->getLastName($email);
-$user_id = $dao->getUserId($email);
-
-echo $user_id[0], " ";
-echo $email, " ";
-
-$memberId = $dao->getGroupMemberId()[0];
-echo $memberId[0], " ";
-
-$isMember = $dao->isMember($user_id[0]);
-
-echo $isMember[0];
+$first_name = $dao->getFirstName($email)[0];
+$last_name = $dao->getLastName($email)[0];
+$user_id = $dao->getUserId($email)[0];
+$isMember = $dao->isMember($user_id)[0];
+$isInstructor = $dao->isInstructor($user_id)[0];
+$isAdmin = $dao->isAdmin($user_id)[0];
 
 ?>
 <html>
 <head>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel='stylesheet' href='css/schedule.css' />
-    <link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
-    <link href="fullcalendar/fullcalendar.print.css" media="print" rel="stylesheet" />
-    <script src='lib/jquery-3.3.1.js'></script>
-    <script src='lib/moment.js'></script>
-    <script src='fullcalendar/fullcalendar.js'></script>
+    <link rel='stylesheet' href='css/fullcalendar.css' />
+    <link href="css/fullcalendar.print.css" media="print" rel="stylesheet" />
+    <script src='js/jquery-3.3.1.js'></script>
+    <script src='js/moment.js'></script>
+    <script src='js/fullcalendar.js'></script>
 
     <script>
         $(function() {
@@ -63,11 +56,11 @@ echo $isMember[0];
 
         <div id="banner">
             <div id="hello_message">
-                <p>Hello <?php echo $first_name[0]?>!</p>
+                <p>Hello <?php echo $first_name?>!</p>
             </div>
             <div id="login_button">
                 <form action="logout.php">
-                    <button type="button">Sign Out</button>
+                    <input type="button" value="Sign Out"/>
                 </form>
             </div>
         </div>
@@ -76,7 +69,7 @@ echo $isMember[0];
             <div>
                 <div>
                     <h3>Account Info</h3>
-                    <p>Name: <?php echo $first_name[0]," ", $last_name[0]?></p>
+                    <p>Name: <?php echo $first_name," ", $last_name?></p>
                     <p>Email: <?php echo $email?></p>
                 </div>
                 <div>
@@ -85,7 +78,23 @@ echo $isMember[0];
                 </div>
             </div>
         <?php endif; ?>
+        <?php if($isInstructor) : ?>
+            <hr>
+            <div>
+                <div>
+                    <h3>Instructor</h3>
 
+                </div>
+            </div>
+        <?php endif; ?>
+        <?php if($isAdmin) : ?>
+            <hr>
+            <div>
+                <div>
+                    <h3>Admin</h3>
+                </div>
+            </div>
+        <?php endif; ?>
     <?php else : ?>
     <div id="banner">
 

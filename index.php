@@ -5,7 +5,7 @@
     <link href="css/index.css" rel="stylesheet">
 </head>
 <div class="imagewrapper">
-    <img id="display_image" src="images/160415122850-womens-sacred-expression-retreat-in-lake-atitlan-guatemala-super-169.jpg">
+    <img id="display_image" src="img/160415122850-womens-sacred-expression-retreat-in-lake-atitlan-guatemala-super-169.jpg">
 </div>
 <div class="body_container">
     <div id="welcome">
@@ -25,7 +25,7 @@
         </p>
     </div>
     <div class="container">
-        <img class="image_list" src="images/studio_view.png">
+        <img class="image_list" src="img/studio_view.png">
         <div class="content">
             <h3>location</h3>
             <p>Enjoy the peace and tranquility of mountains looking out over Lake Atitlán towards volcanoes San Pedro,
@@ -36,14 +36,14 @@
         </div>
     </div>
     <div class="container">
-        <img class="image_list" src="images/handstandishmove.png">
+        <img class="image_list" src="img/handstandishmove.png">
         <div class="content">
             <h3>services</h3>
             <p>Some text</p>
         </div>
     </div>
     <div class="container">
-        <img class="image_list" src="images/sunset.png">
+        <img class="image_list" src="img/sunset.png">
         <div class="content">
             <h3>why</h3>
             <p>Some text</p>

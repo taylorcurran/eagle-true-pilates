@@ -39,9 +39,20 @@ occupancy INT
 
 INSERT INTO class (instructor_id, name, start, end, occupancy) VALUES (1, 'piyo', '2018-10-26 9:00:00', '2018-10-26 10:00:00', 20);
 
-CREATE TABLE user_class (
+CREATE TABLE class_user (
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-user_id INT NOT NULL,
-class_id INT NOT NULL
+class_id INT NOT NULL,
+user_id INT NOT NULL
 );
+
+INSERT INTO class_user (class_id, user_id) VALUES (1, 1);
+
+CREATE TABLE message (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+first_name VARCHAR(64) NOT NULL,
+last_name VARCHAR(64) NOT NULL,
+country VARCHAR(64),
+message VARCHAR(256)
+);
+
 

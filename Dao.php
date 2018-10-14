@@ -85,14 +85,6 @@ class Dao {
         $q->execute();
     }
 
-    public function getGroupMemberId () {
-        $conn = $this->getConnection();
-        $getQuery= "SELECT id FROM groups WHERE name = 'member'";
-        $q = $conn->prepare($getQuery);
-        $q->execute();
-        return reset($q->fetchAll());
-    }
-
     public function getGroupId ($name) {
         $conn = $this->getConnection();
         $getQuery= "SELECT id FROM groups WHERE name = :name";
@@ -102,14 +94,28 @@ class Dao {
         return reset($q->fetchAll());
     }
 
-    public function getGroupInstructorId () {
+    private function getGroupMemberId () {
         $conn = $this->getConnection();
-        return $conn->query("SELECT id FROM group WHERE name = 'instructor'", PDO::FETCH_ASSOC);
+        $getQuery= "SELECT id FROM groups WHERE name = 'member'";
+        $q = $conn->prepare($getQuery);
+        $q->execute();
+        return reset($q->fetchAll());
     }
 
-    public function getGroupAdminId () {
+    private function getGroupInstructorId () {
         $conn = $this->getConnection();
-        return $conn->query("SELECT id FROM group WHERE name = 'admin'", PDO::FETCH_ASSOC);
+        $getQuery= "SELECT id FROM groups WHERE name = 'instructor'";
+        $q = $conn->prepare($getQuery);
+        $q->execute();
+        return reset($q->fetchAll());
+    }
+
+    private function getGroupAdminId () {
+        $conn = $this->getConnection();
+        $getQuery= "SELECT id FROM groups WHERE name = 'admin'";
+        $q = $conn->prepare($getQuery);
+        $q->execute();
+        return reset($q->fetchAll());
     }
 
     public function isMember ($user_id) {
@@ -123,9 +129,42 @@ class Dao {
         return reset($q->fetchAll());
     }
 
+    public function isInstructor ($user_id) {
+        $conn = $this->getConnection();
+        $group_id = $this->getGroupInstructorId()[0];
+        $getQuery = "SELECT id FROM user_group WHERE user_id = :user_id && group_id = :group_id";
+        $q = $conn->prepare($getQuery);
+        $q->bindParam(":user_id", $user_id);
+        $q->bindParam(":group_id", $group_id);
+        $q->execute();
+        return reset($q->fetchAll());
+    }
 
+    public function isAdmin ($user_id) {
+        $conn = $this->getConnection();
+        $group_id = $this->getGroupAdminId()[0];
+        $getQuery = "SELECT id FROM user_group WHERE user_id = :user_id && group_id = :group_id";
+        $q = $conn->prepare($getQuery);
+        $q->bindParam(":user_id", $user_id);
+        $q->bindParam(":group_id", $group_id);
+        $q->execute();
+        return reset($q->fetchAll());
+    }
 
-
+    public function saveMessage($first_name, $last_name, $country, $message) {
+        $conn = $this->getConnection();
+        $saveQuery =
+            "INSERT INTO message
+        (first_name, last_name, country, password)
+        VALUES
+        (:first_name, :last_name, :country, :message)";
+        $q = $conn->prepare($saveQuery);
+        $q->bindParam(":first_name", $first_name);
+        $q->bindParam(":last_name", $last_name);
+        $q->bindParam(":country", $country);
+        $q->bindParam(":message", $message);
+        $q->execute();
+    }
 }
 ?>
 
