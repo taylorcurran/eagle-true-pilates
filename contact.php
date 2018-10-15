@@ -4,7 +4,7 @@ session_start();
 require_once "Dao.php";
 $dao = new Dao();
 
-echo "<pre>" . print_r($_SESSION,1) . "</pre>";
+//echo "<pre>" . print_r($_SESSION,1) . "</pre>";
 ?>
 <html>
 <head>

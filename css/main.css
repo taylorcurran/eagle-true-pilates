@@ -31,6 +31,10 @@ h3 {
     letter-spacing: 3px;
 }
 
+h4 {
+    font-weight: 200;
+}
+
 #header {
     text-align: center;
     margin-bottom: 50px;
@@ -146,7 +150,7 @@ h3 {
 }
 
 /* Bordered form */
-form {
+.form {
     border: 3px solid #f1f1f1;
     width: 300px;
     display: inline-block;
@@ -189,9 +193,66 @@ form > button:hover {
 }
 
 /* Add padding to containers */
-.container {
+.form_container {
     padding: 16px;
     background-color: #f1f1f1;
+}
+
+.index_container {
+    padding: 16px 0;
+}
+
+.message {
+    color: firebrick;
+}
+
+#or {
+    display: inline-block;
+    color: grey;
+    margin: 100px;
+}
+
+#display_image {
+    width: 100%;
+    min-width: 250px;
+    height: 90%;
+    margin: 0;
+}
+
+.image_list {
+    width: 340px;
+    vertical-align: bottom;
+}
+
+.container {
+    margin: 30px 0;
+}
+
+.content {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 30px;
+    max-width: 52%;
+}
+
+.content > h3 {
+    margin-bottom: 0;
+}
+
+.content > p {
+    display:inline-flex;
+}
+
+#testimonials {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.testimonial {
+    max-width: 350px;
+    margin: 20px;
 }
 
 /* Change styles for span and cancel button on extra small screens */
@@ -205,16 +266,6 @@ form > button:hover {
     }
 }
 
-.message {
-    color: firebrick;
-}
-
-#or {
-    display: inline-block;
-    color: grey;
-    margin: 100px;
-}
-
 @media only screen and (max-width: 1200px) {
     .body_container {
         margin: 20px 50px;
@@ -224,5 +275,38 @@ form > button:hover {
 @media only screen and (max-width: 400px) {
     .body_container {
         margin: 20px 10px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .content {
+        max-width: 43%;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    .content {
+        max-width: 85%;
+        margin: 20px 0;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    .content {
+        text-align: left;
+    }
+
+    .image_list {
+        width: 99%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .content {
+        max-width: 100%;
+        display: block;
+        margin-left: 0;
     }
 }

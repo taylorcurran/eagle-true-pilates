@@ -20,7 +20,7 @@ echo "<pre>" . print_r($_SESSION,1) . "</pre>";
 <body>
 <div class="body_container form_wrapper">
     <form action="login_handler.php" method="post">
-        <div class="container">
+        <div class="form_container">
             <label for="email">Email</label>
             <input type="text" name="email" id="email">
 
@@ -37,7 +37,7 @@ echo "<pre>" . print_r($_SESSION,1) . "</pre>";
     <div id="or">OR</div>
 
     <form action="signup_handler.php" method="post">
-        <div class="container">
+        <div class="form_container">
             <label for="first_name">First Name</label>
             <input type="text" name="first_name" id="first_name"
                    value="<?php echo isset($_SESSION['presets']['first_name']) ? $_SESSION['presets']['first_name'] : '';?>">

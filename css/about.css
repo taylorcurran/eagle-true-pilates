@@ -1,63 +1,7 @@
-p {
-    font-family: 'Oxygen', sans-serif;
-    text-align: justify;
-    padding: 15px;
-    margin: 0;
-}
-
-h2 {
-    margin-left: 15%;
-}
-
-h3 {
-    font-family: 'Oxygen', sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 15px;
-}
-
-h5 {
-    font-family: 'Oxygen', sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 15px;
-}
-
-#about {
-    background-color: #6998A5;
-    padding: 20px;
-}
-
-#about > p {
-
-}
-
-#testimonials {
+#h3_about {
     text-align: center;
 }
 
-.column {
-    float: left;
-    display: inline-block;
-    width: 50%;
-}
-
-#left {
-    text-align: right;
-}
-
-#right {
-    text-align: left;
-}
-
-.box {
-    background-color: #446073;
-    border-radius: 25px;
-    color: white;
-    width: 70%;
-    display: inline-block;
-    min-width: 300px;
-    max-width: 400px;
-    margin: 20px;
-    box-shadow: 5px 7px 20px #888888;
+#flower_img {
+    margin-bottom: 20px;
 }

@@ -94,7 +94,7 @@ class Dao {
         return reset($q->fetchAll());
     }
 
-    private function getGroupMemberId () {
+    public function getGroupMemberId () {
         $conn = $this->getConnection();
         $getQuery= "SELECT id FROM groups WHERE name = 'member'";
         $q = $conn->prepare($getQuery);
@@ -155,7 +155,7 @@ class Dao {
         $conn = $this->getConnection();
         $saveQuery =
             "INSERT INTO message
-        (first_name, last_name, country, password)
+        (first_name, last_name, country, message)
         VALUES
         (:first_name, :last_name, :country, :message)";
         $q = $conn->prepare($saveQuery);
@@ -164,6 +164,14 @@ class Dao {
         $q->bindParam(":country", $country);
         $q->bindParam(":message", $message);
         $q->execute();
+    }
+
+    public function getMessages() {
+        $conn = $this->getConnection();
+        $getQuery= "SELECT id, first_name, last_name, country, message FROM message";
+        $q = $conn->prepare($getQuery);
+        $q->execute();
+        return reset($q->fetchAll());
     }
 }
 ?>

@@ -13,6 +13,9 @@ $isMember = $dao->isMember($user_id)[0];
 $isInstructor = $dao->isInstructor($user_id)[0];
 $isAdmin = $dao->isAdmin($user_id)[0];
 
+$messages = $dao->getMessages();
+echo "<pre>" . print_r($messages,1) . "</pre>";
+
 ?>
 <html>
 <head>
@@ -92,6 +95,26 @@ $isAdmin = $dao->isAdmin($user_id)[0];
             <div>
                 <div>
                     <h3>Admin</h3>
+                </div>
+                <div>
+                    <h4>Messages</h4>
+                    <?php if($dao->getMessages()[0] != null) {
+                        echo "<table>
+                        <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Country</th>
+                        <th>Message</th>
+                        </tr>";
+
+                        foreach ($dao->getMessages() as $message) {
+                            echo "<tr><td>" . $message . "</td>";
+                            echo "<tr><td>" . $message['first_name'] . "</td><td>" . $message['last_name'] . "</td><td>{$message['country']}</td><td>{$message['message']}</td><td><a href='delete_message.php?id={$message['id']}'/>X</a></td></tr>";
+                        }
+                        echo "</table>";
+                    } else {
+                        echo "<p>no new messages</p>"; } ?>
+
                 </div>
             </div>
         <?php endif; ?>

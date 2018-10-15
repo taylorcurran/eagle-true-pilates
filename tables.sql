@@ -55,4 +55,4 @@ country VARCHAR(64),
 message VARCHAR(256)
 );
 
-
+INSERT INTO message (first_name, last_name, country, message) VALUES ('adam', 'curran', 'usa', 'I need to schedule classes');

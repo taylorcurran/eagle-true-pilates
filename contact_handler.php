@@ -12,7 +12,6 @@ $message = $_POST['message'];
 $_SESSION['presets']['first_name'] = $first_name;
 $_SESSION['presets']['last_name'] = $last_name;
 $_SESSION['presets']['country'] = $country;
-$_SESSION['presets']['message'] = $message;
 
 $contact_message = array();
 $presets = array();

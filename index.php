@@ -2,10 +2,9 @@
 <html>
 <head>
     <?php require_once "header.php"; ?>
-    <link href="css/index.css" rel="stylesheet">
 </head>
-<div class="imagewrapper">
-    <img id="display_image" src="img/160415122850-womens-sacred-expression-retreat-in-lake-atitlan-guatemala-super-169.jpg">
+<div class="image_wrapper">
+    <img id="display_image" src="img/mat_view.jpg">
 </div>
 <div class="body_container">
     <div id="welcome">
@@ -45,12 +44,11 @@
     <div class="container">
         <img class="image_list" src="img/sunset.png">
         <div class="content">
-            <h3>why</h3>
+            <h3>why?</h3>
             <p>Some text</p>
         </div>
     </div>
 
 </div>
-</body>
 <?php require_once "footer.php"; ?>
 </html>
