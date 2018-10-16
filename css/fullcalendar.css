@@ -628,7 +628,7 @@ TODO: more distinction between this file and common.css
   font-size: 1em;
   text-align: center;
   overflow: hidden;
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'Nunito', sans-serif;
   /* don't allow browser text-selection */
   -webkit-touch-callout: none;
   -webkit-user-select: none;

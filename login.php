@@ -12,14 +12,10 @@ echo "<pre>" . print_r($_SESSION,1) . "</pre>";
 ?>
 
 <html>
-<head>
-    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
-    <link href="css/services.css" rel="stylesheet">
-</head>
 <?php require_once "header.php"; ?>
 <body>
 <div class="body_container form_wrapper">
-    <form action="login_handler.php" method="post">
+    <form class="form" action="login_handler.php" method="post">
         <div class="form_container">
             <label for="email">Email</label>
             <input type="text" name="email" id="email">
@@ -36,7 +32,7 @@ echo "<pre>" . print_r($_SESSION,1) . "</pre>";
 
     <div id="or">OR</div>
 
-    <form action="signup_handler.php" method="post">
+    <form class="form" action="signup_handler.php" method="post">
         <div class="form_container">
             <label for="first_name">First Name</label>
             <input type="text" name="first_name" id="first_name"

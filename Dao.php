@@ -168,10 +168,18 @@ class Dao {
 
     public function getMessages() {
         $conn = $this->getConnection();
-        $getQuery= "SELECT id, first_name, last_name, country, message FROM message";
+        $getQuery= "SELECT * FROM message";
         $q = $conn->prepare($getQuery);
         $q->execute();
-        return reset($q->fetchAll());
+        return $q->fetchAll();
+    }
+
+    public function deleteMessage($id) {
+        $conn = $this->getConnection();
+        $saveQuery = "DELETE FROM message WHERE id = :id";
+        $q = $conn->prepare($saveQuery);
+        $q->bindParam(":id", $id);
+        $q->execute();
     }
 }
 ?>

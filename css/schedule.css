@@ -1,8 +1,27 @@
 #calendar {
 }
 
-#login_button {
-    display: inline-block;
+.login_button {
+    font-size: large;
+    margin: 20px 0;
+    padding: 10px 15px;
+    border: none;
+    background-color: darkseagreen;
+    border-radius: 4px;
+    font-family: 'Nunito', sans-serif;
+}
+
+#logout_button {
+    background-color: indianred;
+}
+
+#login_icon {
+    margin: 0;
+}
+
+#delete_icon {
+    margin: 0;
+    color: indianred;
 }
 
 input {
@@ -23,3 +42,15 @@ input {
 #banner {
     text-align: right;
 }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}

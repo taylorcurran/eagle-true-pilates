@@ -12,9 +12,7 @@ $user_id = $dao->getUserId($email)[0];
 $isMember = $dao->isMember($user_id)[0];
 $isInstructor = $dao->isInstructor($user_id)[0];
 $isAdmin = $dao->isAdmin($user_id)[0];
-
 $messages = $dao->getMessages();
-echo "<pre>" . print_r($messages,1) . "</pre>";
 
 ?>
 <html>
@@ -61,11 +59,8 @@ echo "<pre>" . print_r($messages,1) . "</pre>";
             <div id="hello_message">
                 <p>Hello <?php echo $first_name?>!</p>
             </div>
-            <div id="login_button">
-                <form action="logout.php">
-                    <input type="button" value="Sign Out"/>
-                </form>
-            </div>
+            <button id="logout_button" class="login_button" onclick="location.href='logout.php'">
+                Log Out <i id="login_icon" class="fas fa-sign-out-alt"></i></button>
         </div>
 
         <?php if($isMember) : ?>
@@ -85,8 +80,7 @@ echo "<pre>" . print_r($messages,1) . "</pre>";
             <hr>
             <div>
                 <div>
-                    <h3>Instructor</h3>
-
+                    <h2>Instructor</h2>
                 </div>
             </div>
         <?php endif; ?>
@@ -94,11 +88,11 @@ echo "<pre>" . print_r($messages,1) . "</pre>";
             <hr>
             <div>
                 <div>
-                    <h3>Admin</h3>
+                    <h2>Admin</h2>
                 </div>
                 <div>
-                    <h4>Messages</h4>
-                    <?php if($dao->getMessages()[0] != null) {
+                    <h3>Messages</h3>
+                    <?php if($messages[0] != null) {
                         echo "<table>
                         <tr>
                         <th>First Name</th>
@@ -107,9 +101,12 @@ echo "<pre>" . print_r($messages,1) . "</pre>";
                         <th>Message</th>
                         </tr>";
 
-                        foreach ($dao->getMessages() as $message) {
-                            echo "<tr><td>" . $message . "</td>";
-                            echo "<tr><td>" . $message['first_name'] . "</td><td>" . $message['last_name'] . "</td><td>{$message['country']}</td><td>{$message['message']}</td><td><a href='delete_message.php?id={$message['id']}'/>X</a></td></tr>";
+                        foreach ($messages as $message) {
+                            echo "<tr><td>" . $message['first_name'] . "</td><td>" . $message['last_name']
+                                . "</td><td>{$message['country']}</td><td>{$message['message']}</td><td>
+                                <a href='delete_message.php?id={$message['id']}'/>
+                                <i id='delete_icon' class=\"fas fa-trash-alt\"></i>
+                                </a></td></tr>";
                         }
                         echo "</table>";
                     } else {
@@ -118,14 +115,10 @@ echo "<pre>" . print_r($messages,1) . "</pre>";
                 </div>
             </div>
         <?php endif; ?>
+        <br>
     <?php else : ?>
     <div id="banner">
-
-        <div id="login_button">
-            <form action="login.php">
-                <input type="submit" value="Log In"/>
-            </form>
-        </div>
+        <button class="login_button" onclick="location.href='login.php'">Log In <i id="login_icon" class="fas fa-sign-in-alt"></i></button>
     </div>
     <?php endif; ?>
 
