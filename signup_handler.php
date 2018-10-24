@@ -46,7 +46,6 @@ if ($bad_input) {
 
 //Everything was validated
 $_SESSION['logged_in'] = 'true';
-unset($_SESSION['presets']);
 
 $dao->saveUser($first_name, $last_name, $email, $password);
 

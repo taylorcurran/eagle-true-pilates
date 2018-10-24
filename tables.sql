@@ -17,6 +17,14 @@ user_id INT NOT NULL,
 group_id INT NOT NULL
 );
 
+SELECT user.id,
+  first_name,
+  last_name,
+  email,
+FROM user
+JOIN user_group on user_group.user_id = user.id;
+
+
 CREATE TABLE permission (
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(64) NOT NULL
@@ -31,13 +39,14 @@ permission_id INT NOT NULL
 CREATE TABLE class (
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 instructor_id INT,
-name VARCHAR(64) NOT NULL,
+class_name_id INT NOT NULL,
 start DATETIME NOT NULL,
 end DATETIME NOT NULL,
+max_occupancy INT,
 occupancy INT
 );
 
-INSERT INTO class (instructor_id, name, start, end, occupancy) VALUES (1, 'piyo', '2018-10-26 9:00:00', '2018-10-26 10:00:00', 20);
+INSERT INTO class (instructor_id, class_name_id, start, end, max_occupancy) VALUES (1, 1, '2018-10-26 9:00:00', '2018-10-26 10:00:00', 20);
 
 CREATE TABLE class_user (
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -56,3 +65,23 @@ message VARCHAR(256)
 );
 
 INSERT INTO message (first_name, last_name, country, message) VALUES ('adam', 'curran', 'usa', 'I need to schedule classes');
+
+CREATE TABLE class_name (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(64) NOT NULL
+);
+
+INSERT INTO class_name (name) VALUES ('piyo');
+INSERT INTO class_name (name) VALUES ('mat work');
+INSERT INTO class_name (name) VALUES ('pilates');
+
+SELECT class.id as id,
+  user.first_name as instructor,
+  class_name.name as class_name,
+  start,
+  end,
+  max_occupancy,
+  occupancy
+FROM class
+JOIN user ON class.instructor_id = user.id
+JOIN class_name ON class.class_name_id = class_name.id;

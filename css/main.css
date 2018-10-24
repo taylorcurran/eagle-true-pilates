@@ -160,17 +160,18 @@ form {
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password] {
+input, select {
     width: 100%;
-    padding: 12px 20px;
+    padding: 4px 14px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
 }
 
 /* Set a style for all buttons */
-form > button {
+.form_button {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -181,7 +182,7 @@ form > button {
 }
 
 /* Add a hover effect for buttons */
-form > button:hover {
+.form_button:hover {
     opacity: 0.8;
 }
 
@@ -255,32 +256,34 @@ form > button:hover {
     margin: 20px;
 }
 
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-        display: block;
-        float: none;
-    }
-    .cancelbtn {
-        width: 100%;
-    }
-}
-
 @media only screen and (max-width: 1200px) {
     .body_container {
         margin: 20px 50px;
     }
 }
 
-@media only screen and (max-width: 400px) {
-    .body_container {
-        margin: 20px 10px;
+@media only screen and (max-width: 960px) {
+    #or {
+        margin: 100px 50px;
     }
 }
 
 @media only screen and (max-width: 900px) {
     .content {
         max-width: 43%;
+    }
+}
+
+@media only screen and (max-width: 860px) {
+    #or {
+        margin: 100px 20px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #or {
+        display: block;
+        margin: 50px;
     }
 }
 
@@ -308,5 +311,20 @@ form > button:hover {
         max-width: 100%;
         display: block;
         margin-left: 0;
+    }
+
+    .body_container {
+        margin: 20px 10px;
+    }
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
     }
 }

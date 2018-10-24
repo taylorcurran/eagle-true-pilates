@@ -7,7 +7,7 @@ $dao = new Dao();
 $login_message = isset($_SESSION['login_message']) ? $_SESSION['login_message'] : '';
 unset($_SESSION['login_message']);
 
-echo "<pre>" . print_r($_SESSION,1) . "</pre>";
+//echo "<pre>" . print_r($_SESSION,1) . "</pre>";
 
 ?>
 
@@ -26,7 +26,7 @@ echo "<pre>" . print_r($_SESSION,1) . "</pre>";
             <?php if(!empty($login_message)) { ?>
                 <div class="message"><?php echo $login_message; ?></div>
             <?php } ?>
-            <button type="submit">Login</button>
+            <button class="form_button" type="submit">Login</button>
         </div>
     </form>
 
@@ -43,7 +43,7 @@ echo "<pre>" . print_r($_SESSION,1) . "</pre>";
                    value="<?php echo isset($_SESSION['presets']['last_name']) ? $_SESSION['presets']['last_name'] : '';?>">
 
             <label for="email">Email</label>
-            <input type="text" name="email" id="email"
+            <input type="email" name="email" id="email"
                    value="<?php echo isset($_SESSION['presets']['email']) ? $_SESSION['presets']['email'] : '';?>">
 
             <label for="password">Password</label>
@@ -60,7 +60,7 @@ echo "<pre>" . print_r($_SESSION,1) . "</pre>";
                 unset($_SESSION['signup_message']);
                 ?> </div>
             <?php } ?>
-            <button class type="submit">Sign Up</button>
+            <button class="form_button" type="submit">Sign Up</button>
         </div>
     </form>
 </div>

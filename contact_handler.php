@@ -40,7 +40,6 @@ if ($bad_input) {
 //Everything was validated
 $_SESSION['validated'] = 'validated';
 $_SESSION['contact_message'][] = "Your message was successfully sent!";
-unset($_SESSION['presets']);
 
 $dao->saveMessage($first_name, $last_name, $country, $message);
 

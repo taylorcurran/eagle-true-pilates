@@ -43,7 +43,11 @@ class Dao {
 
     public function getUser ($email) {
         $conn = $this->getConnection();
-        return $conn->query("SELECT * FROM user WHERE email = 'taylorcurran02@bsu.com'", PDO::FETCH_ASSOC);
+        $getQuery = "SELECT * FROM user WHERE email = :email";
+        $q = $conn->prepare($getQuery);
+        $q->bindParam(":email", $email);
+        $q->execute();
+        return reset($q->fetchAll());
     }
 
     public function getUserId ($email) {
@@ -102,7 +106,7 @@ class Dao {
         return reset($q->fetchAll());
     }
 
-    private function getGroupInstructorId () {
+    public function getGroupInstructorId () {
         $conn = $this->getConnection();
         $getQuery= "SELECT id FROM groups WHERE name = 'instructor'";
         $q = $conn->prepare($getQuery);
@@ -110,7 +114,7 @@ class Dao {
         return reset($q->fetchAll());
     }
 
-    private function getGroupAdminId () {
+    public function getGroupAdminId () {
         $conn = $this->getConnection();
         $getQuery= "SELECT id FROM groups WHERE name = 'admin'";
         $q = $conn->prepare($getQuery);
@@ -181,7 +185,72 @@ class Dao {
         $q->bindParam(":id", $id);
         $q->execute();
     }
+
+    public function getClasses() {
+        $conn = $this->getConnection();
+        $getQuery = "SELECT class.id as id,
+              user.first_name as instructor,
+              class_name.name as class_name,
+              start,
+              end,
+              max_occupancy,
+              occupancy
+            FROM class
+            JOIN user ON class.instructor_id = user.id
+            JOIN class_name ON class.class_name_id = class_name.id;";
+        $q = $conn->prepare($getQuery);
+        $q->execute();
+        return $q->fetchAll();
+    }
+
+    public function getInstructorClasses($instructor_id) {
+        $conn = $this->getConnection();
+        $getQuery = "SELECT class.id as id,
+              class_name.name as class_name,
+              start,
+              end,
+              max_occupancy,
+              occupancy
+            FROM class
+            JOIN class_name ON class.class_name_id = class_name.id;
+            WHERE instructor_id = :instructor_id";
+        $q = $conn->prepare($getQuery);
+        $q->bindParam(":instructor_id", $instructor_id);
+        $q->execute();
+        return $q->fetchAll();
+    }
+
+    public function getClassId($class_name) {
+        $conn = $this->getConnection();
+        $getQuery = "SELECT id FROM class WHERE class_name = :class_name";
+        $q = $conn->prepare($getQuery);
+        $q->bindParam(":class_name", $class_name);
+        $q->execute();
+        return reset($q->fetchAll());
+    }
+
+    public function saveClass($instructor_id, $class_name, $start, $end, $max_occupancy ) {
+        $conn = $this->getConnection();
+        $class_name_id = $this->getClassId($class_name)[0];
+        $saveQuery =
+            "INSERT INTO class 
+        (instructor_id, class_name_id, start, end, max_occupancy)
+         VALUES
+        (:instructor_id, :class_name_id, :start, :end, :max_occupancy)";
+        $q = $conn->prepare($saveQuery);
+        $q->bindParam(":instructor_id", $instructor_id);
+        $q->bindParam(":class_name_id", $class_name_id);
+        $q->bindParam(":start", $start);
+        $q->bindParam(":end", $end);
+        $q->bindParam(":max_occupancy", $max_occupancy);
+        $q->execute();
+    }
+
+    public function getClassNames() {
+        $conn = $this->getConnection();
+        $getQuery= "SELECT name FROM class_name";
+        $q = $conn->prepare($getQuery);
+        $q->execute();
+        return $q->fetchAll();
+    }
 }
-?>
-
-
