@@ -102,8 +102,8 @@ try {
             <div>
                 <div>
                     <h3>Account Info</h3>
-                    <p>Name: <?php echo $first_name," ", $last_name?></p>
-                    <p>Email: <?php echo $email?></p>
+                        <p>Name: <?php echo $first_name," ", $last_name?></p>
+                        <p>Email: <?php echo $email?></p>
                 </div>
                 <div>
                     <h3>Upcoming Classes</h3>
@@ -113,7 +113,7 @@ try {
         <?php endif; ?>
         <?php if($isInstructor) : ?>
             <h2>Instructor</h2>
-            <div>
+            <div id="schedule_class">
                 <h3>Schedule A Class</h3>
                 <form class="form" action="schedule_handler.php" method="post">
                     <div class="form_container">
@@ -122,7 +122,8 @@ try {
                         <label for="class_name">Class Name</label>
                         <select class="custom-select" name="class_name" id="class_name">
                             <?php foreach ($dao->getClassNames() as $className) : ?>
-                                <option><?php echo $className[0] ?></option>
+                                <option selected="<?php if($_SESSION['presets']['class_name'] == $className[0]){ echo "selected";};?>">
+                                    <?php echo $className[0] ?></option>
                             <?php endforeach; ?>
                         </select>
 
@@ -132,7 +133,7 @@ try {
 
                         <label for="start_time">Start Time</label>
                         <input type="time" name="start_time" id="start_time"
-                               value="<?php echo isset($_SESSION['presets']['start_time']) ? $_SESSION['presets']['start_time'] : '';?>">
+                               value="<?php echo isset($_SESSION['presets']['time']) ? $_SESSION['presets']['start_time'] : '';?>">
 
                         <label for="length">Length</label>
                         <select class="custom-select" name="length" id="length">
@@ -143,7 +144,8 @@ try {
 
                         <label for="max_occupancy">Max Occupancy</label>
                         <input type="number" name="max_occupancy" id="max_occupancy"
-                               value="<?php echo isset($_SESSION['presets']['max_occupancy']) ? $_SESSION['presets']['max_occupancy'] : '';?>">
+                               value="<?php echo isset($_SESSION['presets']['max_occupancy']) ?
+                                   $_SESSION['presets']['max_occupancy'] : '';?>">
 
                         <?php if (isset($_SESSION['schedule_message'])) : ?>
                             <?php foreach ($_SESSION['schedule_message'] as $signup_message) : ?>
@@ -156,7 +158,7 @@ try {
                     </div>
                 </form>
             </div>
-            <div>
+            <div id="instructor_classes">
                 <h3>Upcoming Classes</h3>
                 <?php
                 $instructor_classes = $dao->getInstructorClasses($user_id);
@@ -173,7 +175,7 @@ try {
                             . "</td><td>{$class['end']}</td><td>{$class['max_occupancy']}</td><td>
                             {$class['occupancy']}</td></tr>";
                     }
-                    echo "<table>";
+                    echo "</table>";
                 } else { echo "<p>No scheduled classes</p>"; } ?>
             </div>
         <?php else : ?>
@@ -223,3 +225,19 @@ try {
 
 <?php require_once "footer.php"; ?>
 </html>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+</script>

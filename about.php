@@ -7,7 +7,7 @@
 
     <div class="body_container">
         <div>
-            <h2>About</h2>
+            <h2 id="h2_about">About</h2>
             <div>
                 <p>
                     Eagle True Pilates is a sacred sanctuary with ancient Mayan altars and natural springs that have
@@ -92,27 +92,39 @@
                     These were all activities that I could not do before Julia’s Pilates classes.
                     I have my life back! Julia is a great teacher
                 </p>
-                <h4>Ann K.</h4>
+                <p>— Ann K.</p>
             </div>
             <div class="testimonial">
-                <h3></h3>
-                <p></p>
-                <h4></h4>
+                <h3>"Such a beautiful space"</h3>
+                <p>
+                    “I love TYF!!! Thanks for everything! Such a beautiful space with an incredible energy
+                    to learn about Permaculture and further my yoga practice. You will be missed! Shanti shanti!”
+                </p>
+                <p>— Mickey Myers, Guest</p>
             </div>
             <div class="testimonial">
-                <h3>awesome</h3>
-                <p>another testimonial</p>
-                <h4>Michael M.</h4>
+                <h3>"magical Yoga Forest"</h3>
+                <p>“I am ever so grateful for the opportunity to spend my time at your magical studio Hayley.
+                    I have gained so much by being here and for that, this will always be a special place for me.
+                    Love you lots.”
+                </p>
+                <p>— Ian Ruta, Intern</p>
             </div>
             <div class="testimonial">
-                <h3>yay</h3>
-                <p>and another one</p>
-                <h4>ken</h4>
+                <h3>"very special place"</h3>
+                <p>“Thank you Hayley and the team for everything. Eagle True Pilates is a very special place,
+                    made with love and beautifully cared for, it was a real joy to spend a few days here.
+                    I will definitely be returning at some point in the future. I really enjoyed the Permaculture talks
+                    - very inspiring, and wonderful to have pilates first thing in the morning.
+                    All the meals were outstanding, and special thanks to the ladies in the kitchen who work so hard.
+                    All the best and good luck in the future.”
+                </p>
+                <p>— Amy Green, Guest</p>
             </div>
             <div class="testimonial">
-                <h3>one more</h3>
+                <h3>"awesome"</h3>
                 <p>this place is awesome!!</p>
-                <h4>the dude</h4>
+                <h4>— the dude</h4>
             </div>
         </div>
     </div>

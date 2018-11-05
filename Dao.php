@@ -47,7 +47,7 @@ class Dao {
         $q = $conn->prepare($getQuery);
         $q->bindParam(":email", $email);
         $q->execute();
-        return reset($q->fetchAll());
+        return $q->fetchAll();
     }
 
     public function getUserId ($email) {

@@ -10,8 +10,9 @@ $dao = new Dao();
   $_SESSION['presets']['email'] = $email;
 
   $presets = array();
+  $user = $dao->getUser($email)[0];
 
-  if (empty($dao->getUser($email))) {
+  if ($user == null || $user['password'] != $password) {
       $_SESSION['logged_in'] = 'false';
       $_SESSION['login_message'] = "*Email or password invalid";
       header('Location: login.php');

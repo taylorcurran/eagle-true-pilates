@@ -6,23 +6,28 @@ body {
 .body_container {
     margin: 20px 200px;
     overflow-x: hidden;
+    clear: both;
 }
 
 h1 {
-    font-family: 'Amatic SC', cursive;
+    font-family: 'Maisha', cursive;
     font-size: 112px;
     font-weight: normal;
     margin-top: unset;
     line-height: 178px;
     display: inline-block;
     margin-bottom: -15px;
-    vertical-align: text-bottom;
+    color: #505050
 }
 
 h2 {
     text-align: center;
     font-size: 42px;
     font-weight: 200;
+}
+
+#h2_classes {
+    margin-top: 0;
 }
 
 h3 {
@@ -35,6 +40,25 @@ h4 {
     font-weight: 200;
 }
 
+p {
+    line-height: 25px;
+}
+
+@font-face {
+    font-family: Nolean;
+    src: url("fonts/noelanscript.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Maisha;
+    src: url("fonts/maisha script Demo.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Yolan;
+    src: url("fonts/Yolan Script Demo.otf") format("opentype");
+}
+
 #header {
     text-align: center;
     margin-bottom: 50px;
@@ -42,8 +66,7 @@ h4 {
 
 #logo {
     display:inline-block;
-    width: 150px;
-    height: auto;
+    width: 120px;
     min-width: 0;
 }
 
@@ -207,6 +230,10 @@ input, select {
     color: firebrick;
 }
 
+#validated {
+    color: darkgreen;
+}
+
 #or {
     display: inline-block;
     color: grey;
@@ -254,6 +281,28 @@ input, select {
 .testimonial {
     max-width: 350px;
     margin: 20px;
+}
+
+#piyo {
+
+}
+
+
+#img_piyo {
+    width: 65%;
+    float: left;
+    margin-right: 50px;
+}
+
+#piyo_content {
+    display: inline-block;
+    max-width: 25%;
+    min-width: 250px;
+    vertical-align: top;
+}
+
+#arial_container {
+    clear: both;
 }
 
 @media only screen and (max-width: 1200px) {

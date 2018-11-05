@@ -8,33 +8,63 @@ $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
+$verifyPassword = $_POST['verifyPassword'];
 
 $_SESSION['presets']['first_name'] = $first_name;
 $_SESSION['presets']['last_name'] = $last_name;
 $_SESSION['presets']['email'] = $email;
 $_SESSION['presets']['password'] = $password;
+$_SESSION['presets']["verifyPassword"] = $verifyPassword;
 
 $signup_message = array();
 $presets = array();
 $bad_input = false;
 
 if (empty($first_name)) {
-    $_SESSION['signup_message'][] = "*First name is required.";
+    $_SESSION['signup_message']['first_name'][] = "*First name is required.";
+    $bad_input = true;
+} else if (!ctype_alpha($first_name)) {
+    $_SESSION['signup_message']['first_name'][] = "*First name can only contain letters.";
     $bad_input = true;
 }
 
 if (empty($last_name)) {
-    $_SESSION['signup_message'][] = "*Last name is required.";
+    $_SESSION['signup_message']['last_name'][] = "*Last name is required.";
+    $bad_input = true;
+} else if (!ctype_alpha($last_name)) {
+    $_SESSION['signup_message']['last_name'][] = "*Last name can only contain letters.";
     $bad_input = true;
 }
 
 if (empty($email)) {
-    $_SESSION['signup_message'][] = "*Email is required.";
+    $_SESSION['signup_message']['email'][] = "*Email is required.";
     $bad_input = true;
+} else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $_SESSION['signup_message']['email'][] = "*Email is not valid.";
+    $bad_input = true;
+} else {
+    $user = $dao->getUser($email)[0];
+    if ($user != null) {
+        $_SESSION['signup_message']['email'][] = "*Email is already in use, please sign in or use a different email.";
+        $bad_input = true;
+    }
+    
 }
 
 if (empty($password)) {
-    $_SESSION['signup_message'][] = "*Password is required.";
+    $_SESSION['signup_message']['password'][] = "*Password is required.";
+    $bad_input = true;
+} else if (!preg_match('/[A-Z]/', $password) || !preg_match('/[a-z]/', $password)
+    || !preg_match('/[0-9]/', $password)) {
+    $_SESSION['signup_message']['password'][] = "*Password must contain a number, upper and lower case letter.";
+    $bad_input = true;
+}
+
+if (empty($verifyPassword)) {
+    $_SESSION['signup_message']['verifyPassword'][] = "*Password must be verified.";
+    $bad_input = true;
+} else if ($password != $verifyPassword) {
+    $_SESSION['signup_message']['verifyPassword'][] = "*Passwords must match.";
     $bad_input = true;
 }
 

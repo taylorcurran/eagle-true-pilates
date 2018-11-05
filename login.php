@@ -38,28 +38,59 @@ unset($_SESSION['login_message']);
             <input type="text" name="first_name" id="first_name"
                    value="<?php echo isset($_SESSION['presets']['first_name']) ? $_SESSION['presets']['first_name'] : '';?>">
 
+            <?php if (isset($_SESSION['signup_message']['first_name'])) {
+                foreach ($_SESSION['signup_message']['first_name'] as $signup_message) {?>
+                    <div class="message">
+                        <?php echo $signup_message; ?></div>
+                <?php  } ?>
+            <?php } ?>
+
             <label for="last_name">Last Name</label>
             <input type="text" name="last_name" id="last_name"
                    value="<?php echo isset($_SESSION['presets']['last_name']) ? $_SESSION['presets']['last_name'] : '';?>">
+
+            <?php if (isset($_SESSION['signup_message']['last_name'])) {
+                foreach ($_SESSION['signup_message']['last_name'] as $signup_message) {?>
+                    <div class="message">
+                        <?php echo $signup_message; ?></div>
+                <?php  } ?>
+            <?php } ?>
 
             <label for="email">Email</label>
             <input type="email" name="email" id="email"
                    value="<?php echo isset($_SESSION['presets']['email']) ? $_SESSION['presets']['email'] : '';?>">
 
+            <?php if (isset($_SESSION['signup_message']['email'])) {
+                foreach ($_SESSION['signup_message']['email'] as $signup_message) {?>
+                    <div class="message">
+                        <?php echo $signup_message; ?></div>
+                <?php  } ?>
+            <?php } ?>
+
             <label for="password">Password</label>
             <input type="password" name="password" id="password"
                    value="<?php echo isset($_SESSION['presets']['password']) ? $_SESSION['presets']['password'] : '';?>">
 
+            <?php if (isset($_SESSION['signup_message']['password'])) {
+                foreach ($_SESSION['signup_message']['password'] as $signup_message) {?>
+                    <div class="message">
+                        <?php echo $signup_message; ?></div>
+                <?php  } ?>
+            <?php } ?>
+
+            <label for="verifyPassword">Verify Password</label>
+            <input type="password" name="verifyPassword" id="verifyPassword"
+                   value="<?php echo isset($_SESSION['presets']['verifyPassword']) ? $_SESSION['presets']['verifyPassword'] : '';?>">
+
             <?php unset($_SESSION['presets']); ?>
 
-            <?php if (isset($_SESSION['signup_message'])) {
-                foreach ($_SESSION['signup_message'] as $signup_message) {?>
-                    <div class="message <?php echo isset($_SESSION['validated']) ? $_SESSION['validated'] : '';?>">
+            <?php if (isset($_SESSION['signup_message']['verifyPassword'])) {
+                foreach ($_SESSION['signup_message']['verifyPassword'] as $signup_message) {?>
+                    <div class="message">
                         <?php echo $signup_message; ?></div>
-                <?php  }
-                unset($_SESSION['signup_message']);
-                ?> </div>
+                <?php  } ?>
             <?php } ?>
+
             <button class="form_button" type="submit">Sign Up</button>
         </div>
     </form>

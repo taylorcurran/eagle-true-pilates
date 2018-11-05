@@ -78,3 +78,53 @@ tr:nth-child(even){background-color: #f2f2f2}
     border-bottom:1px solid blue;
     cursor: pointer;
 }
+
+#instructor_classes {
+    float: left;
+    max-width: 60%;
+    margin-right: 50px;
+}
+
+#schedule_class {
+    float: right;
+    display: inline-block;
+}
+
+h2 {
+    clear: both;
+}
+
+.collapsible {
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: grey;
+    letter-spacing: 3px;
+}
+
+.active, .collapsible:hover {
+    background-color: #555;
+}
+
+.collapsible:after {
+    content: '\002B';
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.collapse_content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}

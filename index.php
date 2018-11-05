@@ -38,7 +38,12 @@
         <img class="image_list" src="img/handstandishmove.png">
         <div class="content">
             <h3>services</h3>
-            <p>Some text</p>
+            <p>Eagle True Pilates offers classes for all levels, from beginners to advanced students,
+                in different styles of pilates lead by various teachers and their personal approach,
+                shaped by their own experience and studies. At Eagle True Pilates, we aim to approach pilates philosophy
+                and practice holistically, a path demonstrated Akhanda Yand Sadhana pilates.
+            </p>
+            <a href="services.php">services</a>
         </div>
     </div>
     <div class="container">

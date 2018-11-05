@@ -27,14 +27,25 @@ if (empty($class_name)) {
     $bad_input = true;
 }
 
+//Date
 if (empty($date)) {
     $_SESSION['schedule_message'][] = "*Date is required.";
     $bad_input = true;
+} else {
+    if ($date < date("d/m/Y")) {
+        $_SESSION['schedule_message'][] = "*Date must be on or after today.";
+        $bad_input = true;
+    }
 }
 
 if (empty($time)) {
     $_SESSION['schedule_message'][] = "*Start time is required.";
     $bad_input = true;
+} else {
+    if ($time < "06:00 am" || $time > "9:00 pm") {
+        $_SESSION['schedule_message'][] = "*Start time must be during business hours between 6:00 am and 9:00 pm.";
+        $bad_input = true;
+    }
 }
 
 if (empty($length)) {
@@ -49,8 +60,9 @@ if ($bad_input) {
 
 //Everything was validated
 $_SESSION['validated'] = 'validated';
-$_SESSION['schedule_message'][] = "Your message was successfully sent!";
+$_SESSION['schedule_message'][] = "Your class was successfully scheduled!";
 
+unset($presets);
 $combined_date_and_time = $date . ' ' . $time;
 $start_time = strtotime($combined_date_and_time);
 $end_time = date_add($start_time, date_interval_create_from_date_string($length));
