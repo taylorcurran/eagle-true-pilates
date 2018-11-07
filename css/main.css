@@ -287,23 +287,36 @@ input, select {
 
 }
 
-
-#img_piyo {
+.classimg {
     width: 65%;
+    margin-bottom: 50px;
+}
+
+#img_right {
+    float: right;
+}
+
+#img_left {
     float: left;
     margin-right: 50px;
 }
 
-#piyo_content {
+.class_content {
     display: inline-block;
     max-width: 25%;
     min-width: 250px;
     vertical-align: top;
 }
 
+.arial_content {
+    margin-left: 50px;
+}
+
 #arial_container {
     clear: both;
 }
+
+
 
 @media only screen and (max-width: 1200px) {
     .body_container {

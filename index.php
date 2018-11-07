@@ -42,14 +42,21 @@
                 in different styles of pilates lead by various teachers and their personal approach,
                 shaped by their own experience and studies.
             </p>
-            <a href="services.php">services</a>
+            <a href="classes.php">classes</a>
         </div>
     </div>
     <div class="container">
         <img class="image_list" src="img/sunset.png">
         <div class="content">
             <h3>why?</h3>
-            <p>Some text</p>
+            <p>
+                Pilates Develops Core Strength. The core muscles of the body are the deep muscles of the back,
+                abdomen, and pelvic floor. These are the muscles we rely on to support a strong, supple back,
+                good posture, and efficient movement patterns. When the core is strong,
+                the frame of the body is supported. If you have any questions or concerns, please contact us
+                for more information.
+            </p>
+            <a href="contact.php">contact</a>
         </div>
     </div>
 
