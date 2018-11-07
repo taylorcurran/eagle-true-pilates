@@ -7,7 +7,7 @@ $dao = new Dao();
 $instructor_id = $_POST['instructor_id'];
 $class_name = $_POST['class_name'];
 $date = $_POST['date'];
-$time = $_POST['start_time'];
+$time = $_POST['time'];
 $length = $_POST['length'];
 $max_occupancy = $_POST['max_occupancy'];
 
@@ -27,25 +27,20 @@ if (empty($class_name)) {
     $bad_input = true;
 }
 
-//Date
 if (empty($date)) {
     $_SESSION['schedule_message'][] = "*Date is required.";
     $bad_input = true;
-} else {
-    if ($date < date("d/m/Y")) {
-        $_SESSION['schedule_message'][] = "*Date must be on or after today.";
-        $bad_input = true;
-    }
+} elseif ($date < date("m/d/Y")) {
+    $_SESSION['schedule_message'][] = "*Date must be on or after today.";
+    $bad_input = true;
 }
 
 if (empty($time)) {
     $_SESSION['schedule_message'][] = "*Start time is required.";
     $bad_input = true;
-} else {
-    if ($time < "06:00 am" || $time > "9:00 pm") {
-        $_SESSION['schedule_message'][] = "*Start time must be during business hours between 6:00 am and 9:00 pm.";
-        $bad_input = true;
-    }
+} elseif ($time < "06:00 am" || $time > "9:00 pm") {
+    $_SESSION['schedule_message'][] = "*Start time must be during business hours between 6:00 am and 9:00 pm.";
+    $bad_input = true;
 }
 
 if (empty($length)) {
@@ -64,8 +59,9 @@ $_SESSION['schedule_message'][] = "Your class was successfully scheduled!";
 
 unset($presets);
 $combined_date_and_time = $date . ' ' . $time;
-$start_time = strtotime($combined_date_and_time);
-$end_time = date_add($start_time, date_interval_create_from_date_string($length));
+$start_time = date('y-m-d H:i:s', strtotime($combined_date_and_time));
+
+$end_time = date('y-m-d H:i:s',strtotime('+1 hour', $start_time));
 
 $dao->saveClass($instructor_id, $class_name, $start_time, $end_time, $max_occupancy);
 

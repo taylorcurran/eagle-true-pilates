@@ -40,8 +40,7 @@
             <h3>services</h3>
             <p>Eagle True Pilates offers classes for all levels, from beginners to advanced students,
                 in different styles of pilates lead by various teachers and their personal approach,
-                shaped by their own experience and studies. At Eagle True Pilates, we aim to approach pilates philosophy
-                and practice holistically, a path demonstrated Akhanda Yand Sadhana pilates.
+                shaped by their own experience and studies.
             </p>
             <a href="services.php">services</a>
         </div>

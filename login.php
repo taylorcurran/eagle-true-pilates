@@ -82,14 +82,17 @@ unset($_SESSION['login_message']);
             <input type="password" name="verifyPassword" id="verifyPassword"
                    value="<?php echo isset($_SESSION['presets']['verifyPassword']) ? $_SESSION['presets']['verifyPassword'] : '';?>">
 
-            <?php unset($_SESSION['presets']); ?>
 
             <?php if (isset($_SESSION['signup_message']['verifyPassword'])) {
                 foreach ($_SESSION['signup_message']['verifyPassword'] as $signup_message) {?>
                     <div class="message">
-                        <?php echo $signup_message; ?></div>
+                        <?php echo $signup_message; ?>
+                    </div>
                 <?php  } ?>
             <?php } ?>
+
+            <?php unset($_SESSION['presets']);
+                  unset($_SESSION['signup_message']);?>
 
             <button class="form_button" type="submit">Sign Up</button>
         </div>

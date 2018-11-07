@@ -2,9 +2,10 @@
 session_start();
 
 require_once "Dao.php";
-$dao = new Dao();
 
 try {
+    $dao = new Dao();
+
     $logged_in = isset($_SESSION['logged_in']) ? $_SESSION['logged_in'] : 'false';
     $email = isset($_SESSION['presets']['email']) ? $_SESSION['presets']['email'] : 'no email';
     $first_name = $dao->getFirstName($email)[0];
@@ -16,7 +17,31 @@ try {
     $messages = $dao->getMessages();
     $classes = $dao->getClasses();
 
-    echo $logged_in . " " . $email;
+    $date = date("m/d/y");
+
+    echo "<p>" . $date . "</p>";
+
+    $time = "07:00 AM";
+
+    echo "<p>" . $time . "</p>";
+
+    $combined_date_and_time = $date . ' ' . $time;
+
+    echo "<p>" . $combined_date_and_time . "</p>";
+
+    $start_time = date('y-m-d H:i:s', strtotime($combined_date_and_time));
+
+    echo "<p>Start time: " . $start_time . "</p>";
+
+    echo "<p>Date add: " . date_add($start_time, date_interval_create_from_date_string('10 days')) . "</p>";
+
+    $end_time = date('y-m-d H:i:s', strtotime('+1 hour', $combined_date_and_time));
+
+    echo "<p>End time: " . $end_time . "</p>";
+
+    $dao->saveClass($user_id, "piyo", $start_time, $end_time, null);
+
+    //echo "<pre>" . print_r($user,1) . "</pre>";
 } catch(Exception $e) {
     echo "<h2>Oops, Something went wrong!</h2>>";
     echo 'Caught exception: ',  $e->getMessage(), "\n";
@@ -131,9 +156,9 @@ try {
                         <input type="date" name="date" id="date"
                                value="<?php echo isset($_SESSION['presets']['date']) ? $_SESSION['presets']['date'] : '';?>">
 
-                        <label for="start_time">Start Time</label>
-                        <input type="time" name="start_time" id="start_time"
-                               value="<?php echo isset($_SESSION['presets']['time']) ? $_SESSION['presets']['start_time'] : '';?>">
+                        <label for="time">Start Time</label>
+                        <input type="time" name="time" id="time"
+                               value="<?php echo isset($_SESSION['presets']['time']) ? $_SESSION['presets']['time'] : '';?>">
 
                         <label for="length">Length</label>
                         <select class="custom-select" name="length" id="length">
