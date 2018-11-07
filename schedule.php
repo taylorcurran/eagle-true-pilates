@@ -39,6 +39,9 @@ try {
 
     echo "<p>End time: " . $end_time . "</p>";
 
+    $end_time = strtotime('+1 hour', $combined_date_and_time);
+    echo "<p>End time: " . $end_time . "</p>";
+
     $dao->saveClass($user_id, "piyo", $start_time, $end_time, null);
 
     //echo "<pre>" . print_r($user,1) . "</pre>";

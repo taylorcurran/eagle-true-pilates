@@ -44,14 +44,14 @@ if (empty($email)) {
     $bad_input = true;
 } else {
     $user = $dao->getUser($email);
-    if (is_null($user[0])) {
+    if (!is_null($user[0])) {
         $_SESSION['signup_message']['email'][] = "*Email is not valid.";
         $bad_input = true;
     }
 }
 
 if (empty($password)) {
-    $_SESSION['signup_message']['password'][] = "*$user Password is required.";
+    $_SESSION['signup_message']['password'][] = "*Password is required.";
     $bad_input = true;
 } elseif (!preg_match('/[A-Z]/', $password) || !preg_match('/[a-z]/', $password)
     || !preg_match('/[0-9]/', $password)) {
