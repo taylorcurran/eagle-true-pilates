@@ -74,7 +74,7 @@ try {
 
 <div class="body_container">
 
-    <?php if((strcmp($logged_in, 'true') == 0) && ($first_name != null)) : ?>
+    <?php if((strcmp($logged_in, 'true') == 0)) : ?>
 
         <div id="banner">
             <div id="hello_message">
@@ -141,8 +141,7 @@ try {
                             <?php unset($_SESSION['schedule_message']); ?>
                          <?php endif; ?>
 
-                        <?php unset($_SESSION['presets']);
-                            unset($_SESSION['schedule_message']);?>
+                        <?php unset($_SESSION['schedule_message']);?>
                         <button class="form_button" type="submit">Schedule</button>
                     </div>
                 </form>
