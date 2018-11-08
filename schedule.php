@@ -17,33 +17,6 @@ try {
     $messages = $dao->getMessages();
     $classes = $dao->getClasses();
 
-    $date = date("m/d/y");
-
-    echo "<p>" . $date . "</p>";
-
-    $time = "07:00 AM";
-
-    echo "<p>" . $time . "</p>";
-
-    $combined_date_and_time = $date . ' ' . $time;
-
-    echo "<p>" . $combined_date_and_time . "</p>";
-
-    $start_time = date('y-m-d H:i:s', strtotime($combined_date_and_time));
-
-    echo "<p>Start time: " . $start_time . "</p>";
-
-    echo "<p>Date add: " . date_add($start_time, date_interval_create_from_date_string('10 days')) . "</p>";
-
-    $end_time = date('y-m-d H:i:s', strtotime('+1 hour', $combined_date_and_time));
-
-    echo "<p>End time: " . $end_time . "</p>";
-
-    $end_time = strtotime('+1 hour', $combined_date_and_time);
-    echo "<p>End time: " . $end_time . "</p>";
-
-    $dao->saveClass($user_id, "piyo", $start_time, $end_time, null);
-
     //echo "<pre>" . print_r($user,1) . "</pre>";
 } catch(Exception $e) {
     echo "<h2>Oops, Something went wrong!</h2>>";
@@ -82,21 +55,6 @@ try {
                 },
 
                 events: [
-                    {
-                        title  : 'event1',
-                        start  : '2018-10-18'
-                    },
-                    {
-                        title  : 'event2',
-                        start  : '2018-10-05',
-                        end    : '2018-10-07',
-                        color  :  'red',
-                    },
-                    {
-                        title  : 'event3',
-                        start  : '2018-10-09T12:30:00',
-                        allDay : false // will make the time show
-                    },
 
                     <?php if($classes[0] != null) {
                         foreach ($classes as $class) { ?>
@@ -105,7 +63,7 @@ try {
                                 start  : '<?php echo $class['start'];?>',
                                 end    : '<?php echo $class['end']?>',
                                 allDay : false
-                            }
+                            },
                     <?php } } ?>
                 ]
             })
@@ -116,7 +74,7 @@ try {
 
 <div class="body_container">
 
-    <?php if(strcmp($logged_in, 'true') == 0) : ?>
+    <?php if((strcmp($logged_in, 'true') == 0) && ($first_name != null)) : ?>
 
         <div id="banner">
             <div id="hello_message">
@@ -177,11 +135,14 @@ try {
 
                         <?php if (isset($_SESSION['schedule_message'])) : ?>
                             <?php foreach ($_SESSION['schedule_message'] as $signup_message) : ?>
-                                <div class="message <?php echo isset($_SESSION['validated']) ? $_SESSION['validated'] : '';?>">
+                                <div class="message" id="<?php echo isset($_SESSION['validated']) ? $_SESSION['validated'] : '';?>">
                                     <?php echo $signup_message; ?></div>
                             <?php endforeach; ?>
                             <?php unset($_SESSION['schedule_message']); ?>
                          <?php endif; ?>
+
+                        <?php unset($_SESSION['presets']);
+                            unset($_SESSION['schedule_message']);?>
                         <button class="form_button" type="submit">Schedule</button>
                     </div>
                 </form>
@@ -246,6 +207,7 @@ try {
         <button class="login_button" onclick="location.href='login.php'">Log In
             <i id="login_icon" class="fas fa-sign-in-alt"></i></button>
     </div>
+
     <?php endif; ?>
 
     <div id='calendar'></div>

@@ -222,7 +222,7 @@ class Dao {
 
     public function getClassId($class_name) {
         $conn = $this->getConnection();
-        $getQuery = "SELECT id FROM class WHERE class_name = :class_name";
+        $getQuery = "SELECT id FROM class_name WHERE name = :class_name";
         $q = $conn->prepare($getQuery);
         $q->bindParam(":class_name", $class_name);
         $q->execute();

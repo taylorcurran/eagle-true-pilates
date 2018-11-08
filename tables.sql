@@ -46,7 +46,7 @@ max_occupancy INT,
 occupancy INT
 );
 
-INSERT INTO class (instructor_id, class_name_id, start, end, max_occupancy) VALUES (1, 1, '2018-10-26 9:00:00', '2018-10-26 10:00:00', 20);
+INSERT INTO class (instructor_id, class_name_id, start, end, max_occupancy) VALUES (1, 1, '2018-11-07 9:00:00', '2018-11-07 10:00:00', 20);
 
 CREATE TABLE class_user (
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

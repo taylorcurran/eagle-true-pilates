@@ -57,14 +57,20 @@ if ($bad_input) {
 $_SESSION['validated'] = 'validated';
 $_SESSION['schedule_message'][] = "Your class was successfully scheduled!";
 
-unset($presets);
 $combined_date_and_time = $date . ' ' . $time;
-$start_time = date('y-m-d H:i:s', strtotime($combined_date_and_time));
+$start_time = date('Y-m-d H:i:s', strtotime($combined_date_and_time));
 
-$end_time = date('y-m-d H:i:s',strtotime('+1 hour', $start_time));
+if ($length == "60 mins") {
+    $end_time = date('Y-m-d H:i:s',strtotime('+1 hour',strtotime($start_time)));
+} elseif ($length == "40 mins") {
+    $end_time = date('Y-m-d H:i:s',strtotime('+40 minutes',strtotime($start_time)));
+} else {
+    $end_time = date('Y-m-d H:i:s',strtotime('+30 minutes',strtotime($start_time)));
+}
 
 $dao->saveClass($instructor_id, $class_name, $start_time, $end_time, $max_occupancy);
 
+unset($presets);
 
 header('Location: schedule.php');
 exit;
