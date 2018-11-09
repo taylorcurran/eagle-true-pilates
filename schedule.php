@@ -74,7 +74,7 @@ try {
 
 <div class="body_container">
 
-    <?php if((strcmp($logged_in, 'true') == 0)) : ?>
+    <?php if((strcmp($logged_in, 'true') == 0) && ($first_name != null)) : ?>
 
         <div id="banner">
             <div id="hello_message">
@@ -151,19 +151,21 @@ try {
                 <?php
                 $instructor_classes = $dao->getInstructorClasses($user_id);
                 if($instructor_classes[0] != null) {
-                    echo "<table><tr>
-                            <th>Class Name</th>
-                            <th>Start Time</th>
-                            <th>End Time</th>
-                            <th>Max Occupancy</th>
-                            <th>Occupancy</th>
-                            </tr>";
+                    echo "<table>
+                                <tr>
+                                    <th>Class Name</th>
+                                    <th>Start Time</th>
+                                    <th>End Time</th>
+                                    <th>Max Occupancy</th>
+                                    <th>Occupancy</th>
+                                </tr>
+                                <tbody>";
                     foreach ($instructor_classes as $class) {
                         echo "<tr><td>" . $class['class_name'] . "</td><td>" . $class['start']
                             . "</td><td>{$class['end']}</td><td>{$class['max_occupancy']}</td><td>
                             {$class['occupancy']}</td></tr>";
                     }
-                    echo "</table>";
+                    echo "</tbody></table>";
                 } else { echo "<p>No scheduled classes</p>"; } ?>
             </div>
         <?php else : ?>

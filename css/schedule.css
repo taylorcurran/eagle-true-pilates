@@ -47,6 +47,12 @@ table {
     width: 100%;
 }
 
+#instructor_classes tbody {
+    display: block;
+    overflow-y: scroll;
+    max-height: 412px;
+}
+
 th, td {
     text-align: left;
     padding: 8px;
@@ -91,6 +97,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 
 h2 {
     clear: both;
+    padding-top: 30px;
 }
 
 .collapsible {

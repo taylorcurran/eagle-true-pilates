@@ -213,7 +213,8 @@ class Dao {
               occupancy
             FROM class
             JOIN class_name ON class.class_name_id = class_name.id;
-            WHERE instructor_id = :instructor_id";
+            WHERE instructor_id = :instructor_id
+            ORDER BY start";
         $q = $conn->prepare($getQuery);
         $q->bindParam(":instructor_id", $instructor_id);
         $q->execute();

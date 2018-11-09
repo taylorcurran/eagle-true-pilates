@@ -71,9 +71,12 @@ id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(64) NOT NULL
 );
 
-INSERT INTO class_name (name) VALUES ('piyo');
-INSERT INTO class_name (name) VALUES ('mat work');
-INSERT INTO class_name (name) VALUES ('pilates');
+INSERT INTO class_name (name) VALUES ('PIYO');
+INSERT INTO class_name (name) VALUES ('Restorative/Yin Yoga');
+INSERT INTO class_name (name) VALUES ('Ariel Yoga');
+INSERT INTO class_name (name) VALUES ('Traditional Pilates');
+INSERT INTO class_name (name) VALUES ('Mat Class');
+
 
 SELECT class.id as id,
   user.first_name as instructor,
