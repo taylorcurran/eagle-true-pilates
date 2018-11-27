@@ -91,10 +91,6 @@ try {
                         <p>Name: <?php echo $first_name," ", $last_name?></p>
                         <p>Email: <?php echo $email?></p>
                 </div>
-                <div>
-                    <h3>Upcoming Classes</h3>
-                    <p></p>
-                </div>
             </div>
         <?php endif; ?>
         <?php if($isInstructor) : ?>
@@ -159,13 +155,13 @@ try {
                                     <th>Max Occupancy</th>
                                     <th>Occupancy</th>
                                 </tr>
-                                <tbody>";
+                                ";
                     foreach ($instructor_classes as $class) {
                         echo "<tr><td>" . $class['class_name'] . "</td><td>" . $class['start']
                             . "</td><td>{$class['end']}</td><td>{$class['max_occupancy']}</td><td>
                             {$class['occupancy']}</td></tr>";
                     }
-                    echo "</tbody></table>";
+                    echo "</table>";
                 } else { echo "<p>No scheduled classes</p>"; } ?>
             </div>
         <?php else : ?>

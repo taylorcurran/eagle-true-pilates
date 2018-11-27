@@ -76,7 +76,9 @@ if ($bad_input) {
 //Everything was validated
 $_SESSION['logged_in'] = 'true';
 
-$dao->saveUser($first_name, $last_name, $email, $password);
+$hash = password_hash($password, PASSWORD_DEFAULT);
+
+$dao->saveUser($first_name, $last_name, $email, $hash);
 
 $user_id = $dao->getUserId($email);
 $group_id = $dao->getGroupMemberId();

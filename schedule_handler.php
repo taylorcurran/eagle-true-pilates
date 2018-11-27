@@ -68,6 +68,10 @@ if ($length == "60 mins") {
     $end_time = date('Y-m-d H:i:s',strtotime('+30 minutes',strtotime($start_time)));
 }
 
+if($max_occupancy == NULL) {
+    $max_occupancy = 20;
+}
+
 $dao->saveClass($instructor_id, $class_name, $start_time, $end_time, $max_occupancy);
 
 unset($presets);

@@ -123,7 +123,7 @@ p {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: white;
     min-width: 169px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -148,7 +148,7 @@ p {
 }
 
 .dropdown:hover .dropbtn {
-    background-color: #f1f1f1;
+    background-color: white;
     color: darkcyan;
     font-size: larger;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -324,6 +324,33 @@ input, select {
     }
 }
 
+@media only screen and (max-width: 1004px) {
+    #instructor_classes {
+        float: none;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    #instructor_classes tbody {
+        display: table-row-group;
+    }
+
+    #schedule_class {
+        float:none;
+        text-align: center;
+        display: inherit;
+    }
+
+    h3 {
+        text-align: left;
+    }
+
+    #display_image {
+        height: auto;
+    }
+
+}
+
 @media only screen and (max-width: 960px) {
     #or {
         margin: 100px 50px;
@@ -366,6 +393,11 @@ input, select {
     .image_list {
         width: 99%;
     }
+
+    #facebook, #twitter, #instagram, #gmail, #number {
+        font-size: xx-large;
+        margin: 20px;
+    }
 }
 
 @media only screen and (max-width: 400px) {
@@ -378,6 +410,16 @@ input, select {
     .body_container {
         margin: 20px 10px;
     }
+
+    #facebook, #twitter, #instagram, #gmail, #number {
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 85px;
+        line-height: normal;
+        margin-top: 30px;
+    }
 }
 
 /* Change styles for span and cancel button on extra small screens */
@@ -388,5 +430,15 @@ input, select {
     }
     .cancelbtn {
         width: 100%;
+    }
+
+    h1 {
+        font-size: 60px;
+        line-height: normal;
+        margin-top: 20px;
+    }
+
+    #logo {
+        width: 100px;
     }
 }

@@ -6,11 +6,11 @@
 
     <footer>
         <div id="footer">
-            <i id="facebook" class="fab fa-facebook-square fa-3x"></i>
-            <i id="twitter" class="fab fa-twitter-square fa-3x"></i>
-            <i id="instagram" class="fab fa-instagram fa-3x"></i>
-            <i id="gmail" class="fas fa-envelope-square fa-3x"></i>
-            <i id="number" class="fas fa-phone-square fa-3x"></i>
+            <a href="http://www.facebook.com" title="Facebook"><i id="facebook" class="fab fa-facebook-square fa-3x" ></i></a>
+            <a href="http://www.twitter.com" title="Twitter"><i id="twitter" class="fab fa-twitter-square fa-3x"></i></a>
+            <a href="http://www.instagram.com" title="Instagram"><i id="instagram" class="fab fa-instagram fa-3x"></i></a>
+            <a href="http://www.gmail.com" title="Gmail"><i id="gmail" class="fas fa-envelope-square fa-3x"></i></a>
+            <a href="contact.php"><i id="number" class="fas fa-phone-square fa-3x"></i></a>
         </div>
     </footer>
 </html>
